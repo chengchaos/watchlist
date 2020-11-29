@@ -1,9 +1,9 @@
-import os
+# import os
 import gevent.monkey
+import multiprocessing
 
 gevent.monkey.patch_all()
 
-import multiprocessing
 
 # debug = True
 loglevel = 'debug'
@@ -11,8 +11,7 @@ bind = "0.0.0.0:7001"
 pidfile = "log/gunicorn.pid"
 accesslog = "log/access.log"
 errorlog = "log/debug.log"
-# daemon = True
-daemon = False
+daemon = True
 
 # 启动的进程数
 workers = multiprocessing.cpu_count()

@@ -85,6 +85,7 @@ import multiprocessing
 loglevel = 'debug'
 bind = "0.0.0.0:7001"
 pidfile = "log/gunicorn.pid"
+pid = "log/gunicorn.pid"
 accesslog = "log/access.log"
 errorlog = "log/debug.log"
 daemon = True
