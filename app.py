@@ -41,3 +41,7 @@ def test_url_for():
     print(url_for('hello', name='chaos')) # /hello/chaos
 
     return 'Test page'
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
