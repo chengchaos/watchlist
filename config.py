@@ -1,5 +1,6 @@
 import os
 import gevent.monkey
+
 gevent.monkey.patch_all()
 
 import multiprocessing
@@ -10,7 +11,7 @@ bind = "0.0.0.0:7001"
 pidfile = "log/gunicorn.pid"
 accesslog = "log/access.log"
 errorlog = "log/debug.log"
-#daemon = True
+# daemon = True
 daemon = False
 
 # 启动的进程数
