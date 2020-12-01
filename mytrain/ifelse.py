@@ -1,4 +1,4 @@
-
+# -*- coding:utf-8 -*-
 requested_toppings = ["hello"]
 
 if requested_toppings:

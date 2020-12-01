@@ -4,9 +4,9 @@ from flask import Flask, render_template
 from flask import url_for
 from flask_restful import Api, Resource
 
+
 app = Flask(__name__)
 api = Api(app)
-
 
 name = "Grey Li"
 movies = [
@@ -21,6 +21,8 @@ movies = [
     {'title': 'WALL-E', 'year': '2008'},
     {'title': 'The Pork of Music', 'year': '2012'},
 ]
+
+
 # 使用 app.route() 装饰器来为这个函数
 # 绑定对应的 URL
 
@@ -58,5 +60,6 @@ class MyView(Resource):
 
 api.add_resource(MyView, "/my/<string:name>", endpoint="my")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
