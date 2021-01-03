@@ -1,10 +1,6 @@
-*.pyc
-*~
-env
-__pycache__
-.DS_Storewq
 .env
-/.idea/
-/.vscode/
-/venv/
-/log/
+.idea
+.vscode
+__pycache__
+**/_pycache__
+venv

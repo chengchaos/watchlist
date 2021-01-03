@@ -1,8 +1,12 @@
 # -*- coding:utf-8 -*-
+# 导入 builtins 模块，要不然 IDEA 提示错误。
+from builtins import print
 # 从 flask 包导入 Flask 类
-from flask import Flask, render_template
+from flask import Flask
+from flask import render_template
 from flask import url_for
-from flask_restful import Api, Resource
+from flask_restful import Api
+from flask_restful import Resource
 
 
 app = Flask(__name__)

@@ -44,9 +44,12 @@ Windows 则执行 activate 命令进入，deactivate 退出：
 安装：
 
 ```bash
- pip install-flask-restful
+ pip install flask-restful
 ```
 
+```sh
+ * Tip: There are .env or .flaskenv files present. Do "pip install python-dotenv" to use them.
+```
 如果使用 flask-restful，那么定义视图函数的时候，就要继承自 `flask_restful.Resource` 类，然后再根据当前情求的 method 来定义相应的方法。比如期望客户端使用 get 方法发送过来的情求，那么就定义一个 get 方法。类似 MethodView：
 
 ```python
