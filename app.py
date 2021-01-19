@@ -1,8 +1,16 @@
+# -*- coding:utf-8 -*-
+# 导入 builtins 模块，要不然 IDEA 提示错误。
+from builtins import print
 # 从 flask 包导入 Flask 类
-from flask import Flask, render_template
+from flask import Flask
+from flask import render_template
 from flask import url_for
+from flask_restful import Api
+from flask_restful import Resource
+
 
 app = Flask(__name__)
+api = Api(app)
 
 name = "Grey Li"
 movies = [
@@ -21,6 +29,8 @@ movies = [
 
 # 使用 app.route() 装饰器来为这个函数
 # 绑定对应的 URL
+
+
 @app.route('/')
 @app.route("/index")
 def root():
@@ -45,6 +55,14 @@ def test_url_for():
     print(url_for('hello', name='chaos'))  # /hello/chaos
 
     return 'Test page'
+
+
+class MyView(Resource):
+    def get(self, name):
+        return {'username': name}
+
+
+api.add_resource(MyView, "/my/<string:name>", endpoint="my")
 
 
 if __name__ == "__main__":

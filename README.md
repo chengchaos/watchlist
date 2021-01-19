@@ -68,9 +68,42 @@ pip install mysql-connector
 
 ## 安装 Gunicorn
 
+
+5/ flask-restful
+
+安装：
+
+```bash
+ pip install flask-restful
+```
+
+```sh
+ * Tip: There are .env or .flaskenv files present. Do "pip install python-dotenv" to use them.
+```
+如果使用 flask-restful，那么定义视图函数的时候，就要继承自 `flask_restful.Resource` 类，然后再根据当前情求的 method 来定义相应的方法。比如期望客户端使用 get 方法发送过来的情求，那么就定义一个 get 方法。类似 MethodView：
+
+```python
+from flask import Flask, render_template, url_for
+from flask_resultful import Api, Resource
+
+app = Flask(__name__)
+# 用 Api 来绑定 app
+api = Api(app)
+
+class IndexView(Resource):
+    def get(self):
+        return {"username": "chengchao"}
+
+api.add_resource(IndexView, "/", endpoint="index")
+
+```
+
+6/ 安装 Gunicorn
+
 ```bash
 (env) $ pip3 install gunicorn
 ```
+
 或者使用 `--uesr` 方式安装到自己的的环境中：
 
 ```bash
@@ -79,9 +112,7 @@ export PATH=/home/username/.local/bin:$PATH
 
 ```
 
-
-
-6/ 运行
+7/ 使用 gunicorn 运行
 
 ```bash
 gunicorn -w 4 -b 127.0.0.1:4000 run:app
@@ -90,7 +121,7 @@ gunicorn -w 4 -b 127.0.0.1:4000 run:app
 其中：
 
 - `-w 4` 是指预定义的工作进程数为 4
-- `b 127.0.0.1:4000` 指绑定的地址和短裤
+- `b 127.0.0.1:4000` 指绑定的地址和端口
 - `run` 是 flask 的启动 python 文件， `app` 则是 flask 应用程序实例名
 
 ```python3
@@ -132,9 +163,6 @@ x_forwarded_for_header = 'X-FORWARDED-FOR'
 gunicorn --config=config.py run:app
 ```
 
-
 参考：
 
 - [gunicorn部署Flask服务](https://www.jianshu.com/p/fecf15ad0c9a)
-
-

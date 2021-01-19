@@ -2,10 +2,11 @@
 *~
 env
 myenv
+venv
+
 __pycache__
 .DS_Storewq
 .env
-/.idea/
-/.vscode/
-/venv/
-/log/
+.idea
+.vscode
+**/_pycache__
