@@ -1,6 +1,7 @@
 *.pyc
 *~
 env
+myenv
 __pycache__
 .DS_Storewq
 .env

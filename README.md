@@ -39,7 +39,34 @@ Windows 则执行 activate 命令进入，deactivate 退出：
 (env) $ flask run
 ```
 
-5/ 安装 Gunicorn
+
+5/ 开发
+
+```bash
+touch .env .flashenv
+# .env 文件用于存储敏感数据，不应提交进 Git 仓库。
+# .flaskenv 文件用于存储 Flask 命令行系统相关的公开的环境变
+```
+### 模板 Jinja2
+
+`mkdir templates`
+
+
+```html
+{{ ... }} 用来标记变量
+{% ... %} 用来标记语句，比如 if ， for 等等
+{# ... #} 用来标记注释
+
+```
+
+### MySQL
+
+```bash
+pip install mysql-connector
+
+```
+
+## 安装 Gunicorn
 
 ```bash
 (env) $ pip3 install gunicorn
@@ -51,6 +78,8 @@ pip3 install gunicorn --user
 export PATH=/home/username/.local/bin:$PATH
 
 ```
+
+
 
 6/ 运行
 
@@ -107,4 +136,5 @@ gunicorn --config=config.py run:app
 参考：
 
 - [gunicorn部署Flask服务](https://www.jianshu.com/p/fecf15ad0c9a)
+
 
