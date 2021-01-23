@@ -13,9 +13,9 @@ def get_watch_list(page):
     dbcursor = conn.cursor()
     limit = 10
     offset = (page - 1) * limit
-    str_sql = "select id, title, `year` from watch_list order by id desc limit %s offset %s "
+    sql_operation = "select id, title, `year` from watch_list order by id desc limit %s offset %s "
     data_var = (limit, offset)
-    dbcursor.execute(str_sql, data_var)
+    dbcursor.execute(sql_operation, data_var)
     db_result = dbcursor.fetchall()
 
     data_res = []
